@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 Variables CSS pour les thèmes dynamiques */
+:root {
+  /* Couleurs globales */
+  --color-primary: #f9c74f;
+  --color-secondary: #e3654f;
+  
+  /* Couleurs par défaut (peuvent être overridées par page) */
+  --color-theme-50: #eff6ff;
+  --color-theme-100: #dbeafe;
+  --color-theme-500: #3b82f6;
+  --color-theme-600: #2563eb;
+  --color-theme-700: #1d4ed8;
+}
+
+/* 🔨 Thème Artisans */
+[data-theme="artisan"] {
+  --color-theme-50: #eff6ff;
+  --color-theme-100: #dbeafe;
+  --color-theme-500: #3b82f6;
+  --color-theme-600: #2563eb;
+  --color-theme-700: #1d4ed8;
+}
+
+/* 🤝 Thème Associations */
+[data-theme="association"] {
+  --color-theme-50: #f0fdf4;
+  --color-theme-100: #dcfce7;
+  --color-theme-500: #22c55e;
+  --color-theme-600: #16a34a;
+  --color-theme-700: #15803d;
+}
+
+/* 🏢 Thème Entreprises */
+[data-theme="enterprise"] {
+  --color-theme-50: #faf5ff;
+  --color-theme-100: #f3e8ff;
+  --color-theme-500: #a855f7;
+  --color-theme-600: #9333ea;
+  --color-theme-700: #7e22ce;
+}
+
+/* 🎯 Reset & Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-white text-neutral-900 font-sans;
+  min-height: 100vh;
+}
+
+/* 🔗 Focus states pour accessibilité */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* 📱 Utilitaires responsive */
+@layer utilities {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+}
