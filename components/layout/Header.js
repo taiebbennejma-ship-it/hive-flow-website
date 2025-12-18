@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Button from '../ui/Button';
 
 /**
- * Header global du site
- * Navigation + Logo + CTA
+ * Header global du site - Version améliorée
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,24 +17,24 @@ export default function Header() {
   ];
   
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-neutral-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 shadow-sm">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-neutral-900">H</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-11 h-11 bg-gradient-primary rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all">
+              <span className="text-2xl font-bold text-white">H</span>
             </div>
-            <span className="text-xl font-bold text-neutral-900">Hive Flow</span>
+            <span className="text-xl font-bold text-neutral-900 tracking-tight">Hive Flow</span>
           </Link>
           
           {/* Navigation Desktop */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-neutral-700 hover:text-neutral-900 font-medium transition-colors"
+                className="text-neutral-700 hover:text-primary-600 font-medium transition-colors px-1"
               >
                 {item.name}
               </Link>
@@ -43,7 +42,7 @@ export default function Header() {
           </div>
           
           {/* CTA Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="sm" href="https://app.hiveflow.com/login">
               Se connecter
             </Button>
@@ -54,7 +53,7 @@ export default function Header() {
           
           {/* Menu Mobile Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-neutral-100"
+            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg
@@ -84,19 +83,19 @@ export default function Header() {
         
         {/* Menu Mobile */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-neutral-200">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-6 border-t border-neutral-200">
+            <div className="flex flex-col gap-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-neutral-700 hover:text-neutral-900 font-medium"
+                  className="text-neutral-700 hover:text-primary-600 font-medium py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 flex flex-col space-y-3">
+              <div className="pt-4 flex flex-col gap-3 border-t border-neutral-200">
                 <Button variant="ghost" size="sm" href="https://app.hiveflow.com/login">
                   Se connecter
                 </Button>

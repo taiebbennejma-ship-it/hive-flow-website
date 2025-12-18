@@ -1,10 +1,11 @@
 /**
- * Composant Section réutilisable
+ * Composant Section réutilisable - Version améliorée
  */
 export default function Section({ 
   children, 
   className = '',
   background = 'white',
+  centered = false,
   ...props 
 }) {
   const backgrounds = {
@@ -18,7 +19,7 @@ export default function Section({
       className={`section-padding ${backgrounds[background]} ${className}`} 
       {...props}
     >
-      <div className="container-custom">
+      <div className={`container-custom ${centered ? 'text-center' : ''}`}>
         {children}
       </div>
     </section>
