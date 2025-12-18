@@ -1,45 +1,49 @@
 /**
- * Composant Button réutilisable - Version améliorée
+ * Composant Button - Bouton ou lien stylisé
+ *
+ * @param {ReactNode} children - Contenu du bouton (texte + icônes)
+ * @param {string} variant - 'primary' | 'outline' | 'ghost' | 'theme'
+ * @param {string} size - 'sm' | 'md' | 'lg'
+ * @param {string} href - Si défini, rend un <a> au lieu d'un <button>
+ * @param {string} className - Classes additionnelles
  */
-export default function Button({ 
-  children, 
-  variant = 'primary', 
+export default function Button({
+  children,
+  variant = 'primary',
   size = 'md',
   href,
   className = '',
-  ...props 
+  ...props
 }) {
-  // Styles de base
-  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2';
-  
-  // Variantes de couleur
+  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2';
+
   const variants = {
-    primary: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600 focus:ring-amber-500 shadow-md hover:shadow-lg',
-    secondary: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600 focus:ring-amber-500',
+    primary: 'bg-gradient-primary text-white hover:shadow-lg hover:-translate-y-0.5 focus:ring-primary-500 shadow-md',
     outline: 'border-2 border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white focus:ring-neutral-500',
     ghost: 'text-neutral-700 hover:bg-neutral-100 focus:ring-neutral-500',
-    theme: 'bg-[var(--color-theme-500)] text-white hover:bg-[var(--color-theme-600)] focus:ring-[var(--color-theme-500)] shadow-md hover:shadow-lg',
+    theme: 'bg-[var(--color-theme-500)] text-white hover:bg-[var(--color-theme-600)] hover:shadow-lg hover:-translate-y-0.5 focus:ring-[var(--color-theme-500)] shadow-md',
   };
-  
-  // Tailles avec plus d'espace
+
   const sizes = {
-    sm: 'px-6 py-3 text-sm gap-2',
-    md: 'px-8 py-4 text-base gap-2',
-    lg: 'px-10 py-5 text-lg gap-3',
+    sm: 'px-5 py-2.5 text-sm gap-2',
+    md: 'px-7 py-3.5 text-base gap-2',
+    lg: 'px-9 py-4 text-lg gap-3',
   };
-  
+
   const buttonClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
-  
-  // Si c'est un lien
+
   if (href) {
     return (
-      <a href={href} className={buttonClasses} {...props}>
+      <a
+        href={href}
+        className={buttonClasses}
+        {...props}
+      >
         {children}
       </a>
     );
   }
-  
-  // Sinon c'est un bouton
+
   return (
     <button className={buttonClasses} {...props}>
       {children}
