@@ -3,16 +3,16 @@ import Card from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
 
 /**
- * Template réutilisable pour les pages cibles (Artisans / Associations / Entreprises)
+ * Template reutilisable pour les pages cibles (Artisans / Associations / Entreprises)
  *
- * @param {object} data - Toutes les données de la page
+ * @param {object} data - Toutes les donnees de la page
  * @param {string} data.theme - 'artisan' | 'association' | 'enterprise'
- * @param {object} data.hero - Données du hero
+ * @param {object} data.hero - Donnees du hero
  * @param {object} data.about - Section "Qui sommes-nous"
  * @param {object} data.concept - Section "Notre concept"
  * @param {object} data.automation - Section "Qu'est-ce que l'automatisation"
  * @param {array} data.offers - Liste des offres tarifaires
- * @param {array} data.testimonials - Liste des témoignages
+ * @param {array} data.testimonials - Liste des temoignages
  * @param {object} data.cta - Call-to-action final
  */
 export default function TargetPageTemplate({ data }) {
@@ -43,7 +43,7 @@ export default function TargetPageTemplate({ data }) {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="theme" size="lg" href="https://app.hiveflow.com">
-                  Accéder à Hive Flow
+                  Accï¿½der ï¿½ Hive Flow
                 </Button>
                 <Button variant="outline" size="lg" href="#offres">
                   Voir les tarifs
@@ -51,7 +51,7 @@ export default function TargetPageTemplate({ data }) {
               </div>
             </div>
 
-            {/* Illustration (placeholder avec dégradé) */}
+            {/* Illustration (placeholder avec dï¿½gradï¿½) */}
             <div className="relative animate-float">
               <div className="aspect-square bg-gradient-to-br from-[var(--color-theme-400)] to-[var(--color-theme-600)] rounded-3xl opacity-20 hexagon-shape"></div>
             </div>
@@ -120,14 +120,14 @@ export default function TargetPageTemplate({ data }) {
               {/* Callout */}
               <div className="bg-[var(--color-theme-50)] border-l-4 border-[var(--color-theme-500)] p-6 rounded-lg mb-6">
                 <p className="text-[var(--color-theme-900)] font-semibold mb-2">
-                  =¡ Le saviez-vous ?
+                  =ï¿½ Le saviez-vous ?
                 </p>
                 <p className="text-[var(--color-theme-800)]">
                   {automation.fact}
                 </p>
               </div>
 
-              {/* Bloc RAG si présent (entreprises uniquement) */}
+              {/* Bloc RAG si prï¿½sent (entreprises uniquement) */}
               {automation.rag && (
                 <div className="bg-neutral-50 border-l-4 border-neutral-400 p-6 rounded-lg">
                   <p className="text-neutral-900 font-semibold mb-2">
@@ -137,7 +137,7 @@ export default function TargetPageTemplate({ data }) {
                     {automation.rag.description}
                   </p>
                   <p className="text-neutral-700">
-                    <strong>Bénéfices concrets :</strong> {automation.rag.benefits}
+                    <strong>Bï¿½nï¿½fices concrets :</strong> {automation.rag.benefits}
                   </p>
                 </div>
               )}
@@ -159,7 +159,7 @@ export default function TargetPageTemplate({ data }) {
               Nos offres
             </h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Choisissez la formule qui correspond à vos besoins. Tous nos plans incluent un essai gratuit de 14 jours.
+              Choisissez la formule qui correspond ï¿½ vos besoins. Tous nos plans incluent un essai gratuit de 14 jours.
             </p>
           </div>
 
@@ -219,7 +219,7 @@ export default function TargetPageTemplate({ data }) {
               Ils nous font confiance
             </h2>
             <p className="text-lg text-neutral-600">
-              Découvrez ce que nos utilisateurs disent de Hive Flow.
+              Dï¿½couvrez ce que nos utilisateurs disent de Hive Flow.
             </p>
           </div>
 
