@@ -1,9 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* 🎨 Variables CSS pour les thèmes dynamiques */
-:root {
+@theme {
   /* Couleurs globales */
   --color-primary: #f9c74f;
   --color-secondary: #e3654f;
@@ -57,22 +55,56 @@ html {
 }
 
 body {
-  @apply bg-white text-neutral-900 font-sans;
+  background-color: white;
+  color: #1c1917;
+  font-family: var(--font-inter), system-ui, sans-serif;
   min-height: 100vh;
 }
 
 /* 🔗 Focus states pour accessibilité */
 *:focus-visible {
-  @apply outline-2 outline-offset-2 outline-primary-500;
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
 }
 
 /* 📱 Utilitaires responsive */
-@layer utilities {
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
